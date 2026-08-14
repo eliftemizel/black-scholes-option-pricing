@@ -9,7 +9,9 @@ This repository contains a Python implementation that numerically solves the **B
 ### 1. Black-Scholes PDE
 The Black-Scholes PDE models the price of a European option $V(S, t)$ as a function of stock price $S$ and time $t$:
 
-$$ \frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r S \frac{\partial V}{\partial S} - r V = 0 $$
+$$
+\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r S \frac{\partial V}{\partial S} - r V = 0
+$$
 
 where $S$ is the stock price, $t$ is time, $r$ is the risk-free interest rate, and $\sigma$ is volatility.
 
@@ -21,7 +23,9 @@ To simplify the numerical solution, we transform the PDE into the Heat Equation 
 
 This yields the classical Heat Equation form:
 
-$$ \frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2} $$
+$$
+\frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2}
+$$
 
 ---
 
@@ -29,14 +33,18 @@ $$ \frac{\partial u}{\partial \tau} = \frac{\partial^2 u}{\partial x^2} $$
 
 Discretizing space $x \in [x_{\min}, x_{\max}]$ into $N_x$ points and dimensionless time $\tau \in [0, \tau_{\max}]$ into $N_t$ steps, the explicit update formula is:
 
-$$ u_{i, j+1} = u_{i, j} + \mu \left( u_{i+1, j} - 2u_{i, j} + u_{i-1, j} \right) $$
+$$
+u_{i, j+1} = u_{i, j} + \mu \left( u_{i+1, j} - 2u_{i, j} + u_{i-1, j} \right)
+$$
 
 where the stability coefficient $\mu = \frac{\Delta \tau}{\Delta x^2}$.
 
 ### CFL Stability Condition
 For numerical stability, the Courant-Friedrichs-Lewy (CFL) condition must hold:
 
-$$ \mu \le 0.5 $$
+$$
+\mu \le 0.5
+$$
 
 In this implementation, $\mu \approx 0.0030 \le 0.5$, guaranteeing full convergence.
 
@@ -58,15 +66,15 @@ In this implementation, $\mu \approx 0.0030 \le 0.5$, guaranteeing full converge
 
 ---
 
-## 🛠️ Requirements & Running
+## 🛠️ Tech Stack & Environment
 
-* **Dependencies:** `numpy`, `matplotlib`
-* Simply open and run `Blackscholes.ipynb` in Jupyter Notebook.
+* **Language:** Python
+* **Libraries:** NumPy, Matplotlib
+* **Environment:** Jupyter Notebook (`Blackscholes.ipynb`)
 
 ---
 
 ## 👤 Author
 
-* **Elif Gül Temizel**
-* Department of Mathematics, Istanbul Bilgi University
-* Course: MATH 420
+* **Elif Gül Temizel** — Department of Mathematics, Istanbul Bilgi University
+* **Course:** MATH 420
